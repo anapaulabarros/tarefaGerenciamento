@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+	<th:block th:include="geral/head :: head"></th:block>
+</head>
+
+<body>
+<div class="container">	
+	<div th:replace="geral/header :: header">&nbsp;</div>
+	
+	
+		<div class="row">
+			<center><h3><strong>Edi&ccedil;&atilde;o de tarefa</strong></h3></center>
+		</div>
+		<form class="form-horizontal" th:action="@{/updatetarefa}" th:object="${tarefa}" method="post" enctype="multipart/form-data" id="formEdicao">
+			<div class="form-group">
+			    <label for="nome" class="col-sm-2 control-label">Nome:</label>
+			    <div class="col-sm-10">
+			    	<input type="text" name="nomeTarefa" th:value="${tarefa.nomeTarefa}" class="form-control" id="nome"/>
+			    	<input type="hidden" name="tarefaId" th:value="${tarefa.tarefaId}" />
+			    </div>
+			  </div>
+			  
+			  <div class="form-group">
+			    <label for="descricao" class="col-sm-2 control-label">Descri&ccedil;&atilde;o:</label>
+			    <div class="col-sm-10">
+			    	<textarea class="form-control" name="descricaoTarefa" th:text="${tarefa.descricaoTarefa}" id="descricao"></textarea>
+			    </div>
+			  </div>
+			  
+			  <div class="form-group">
+			    <label class="col-sm-2 control-label">Prioridade:</label>
+			    
+			    <div class="col-sm-10">
+			    	<label class="radio-inline">
+					  <input type="radio" name="prioridadeTarefa" id="prioridade" value="BAIXA" /> Baixa
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="prioridadeTarefa" value="MEDIA" /> M&eacute;dia
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="prioridadeTarefa" value="ALTA" /> Alta
+					</label>
+			    </div>
+			    <!-- <label class="col-sm-2 control-label">atual: <strong><span th:text="${tarefa.prioridadeTarefa}"/></strong></label> -->
+			  </div>
+			  
+			  
+			  <div class="form-group">
+			    <label for="categoria" class="col-sm-2 control-label">Categoria:</label>
+			    
+			    <div class="col-sm-10">
+			    	<select name="categoriaTarefa" class="form-control" id="categoria">
+					  	<option value="sem categoria">Selecione uma categoria</option>
+						<option value="trabalho">Trabalho</option>
+						<option value="estudo">Estudo</option>
+						<option value="compras">Compras</option>
+						<option value="pessoal">Pessoal</option>
+					</select>
+			    </div>
+			    <!-- <label class="col-sm-2 control-label">atual: <strong><span th:text="${tarefa.categoriaTarefa}"/></strong></label> -->
+			  </div>
+			  
+			  
+			  <div class="form-group">
+			    <label class="col-sm-2 control-label">Status:</label>
+			    <div class="col-sm-10">
+			    	<div class="radio">
+					  <label>
+					    <input type="radio" name="statusTarefa" id="prioridade" value="0" />
+					    Aberta
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="statusTarefa" value="1" />
+					    Concluida
+					  </label>
+					</div>
+			    </div>
+			    <!--<label class="col-sm-1 control-label">atual: <strong><span th:text="${tarefa.statusTarefa}"/></strong></label>-->
+			  </div>
+			  
+			  <div class="form-group">
+			    <label for="nome" class="col-sm-3 control-label">
+				    <a href="javaScript:addInput();">
+				    	Inserir SubTarefa <i class="fa fa-plus-circle" aria-hidden="true"></i>
+				    </a>
+			    </label>
+			    <div class="col-sm-9" id="boxInput"></div>
+			    <div class="col-sm-9" th:if="${tarefa.listaSubTarefas}">
+			    	<input th:each="subtarefa : ${tarefa.listaSubTarefas}" type="text" name="listaSubTarefas" th:value="${subtarefa.nomeSubTarefa}" class="form-control input-sub"/>
+			    </div>
+			    
+			  </div>
+			  
+			  
+			  <div class="form-group">
+			    <div class="col-sm-offset-2 col-sm-10">
+			      <input type="submit" class="btn btn-default" value="Editar" />
+			      <input type="reset" class="btn btn-default" value="Limpar" />
+			    </div>
+			  </div>
+		</form>
+	
+	<footer class="footer">
+		<th:block th:include="geral/footer :: footer"></th:block>
+	</footer>
+	
+</div><!-- /container -->	
+</body>
+</html>

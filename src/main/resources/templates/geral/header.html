@@ -1,0 +1,24 @@
+
+<div th:fragment="header" class="header clearfix">
+   <nav>
+     <ul class="nav nav-pills pull-right">
+       <li role="presentation"><a href="#" th:href="@{/}">Home</a></li>
+       <li role="presentation"><a href="#" th:href="@{/editacontato/1}">Perfil</a></li>
+       <li 	class="dropdown">
+       		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+       				Configura&ccedil;&otilde;es <span class="caret"></span>
+       		</a>
+       		
+       		<ul class="dropdown-menu">
+              <li><a href="javascript:changeBackGroundColour();"><i class="fa fa-paint-brush"></i> Mudar cor de fundo</a></li>
+              <li><a href="javascript:changeSizeFont('plus');"><i class="fa fa-plus-circle"></i> Aumentar tamanho da fonte</a></li>
+              <li><a href="javascript:changeSizeFont('minus');"><i class="fa fa-minus-circle"></i> Diminuir tamanho da fonte</a></li>
+              <li><a href="javascript:restoreSettings();"><i class="fa fa-undo"></i> Restaurar configura&ccedil;&otilde;es</a></li>
+            </ul>
+       </li>
+     </ul>
+   </nav>
+   <h3 class="text-muted"><a href="#" th:href="@{/}">
+   		<img src="../../static/img/todo-list-icon.png" width="50" th:src="@{/img/todo-list-icon.png}"/></a>
+   	</h3>
+ </div>

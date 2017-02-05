@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+	<th:block th:include="geral/head :: head"></th:block>
+</head>
+
+<body>
+<div class="container">	
+	<div th:replace="geral/header :: header">&nbsp;</div>
+	
+	
+		<div class="row">
+			<center><h3><strong>Detalhamento da tarefa</strong></h3></center>
+		</div>
+		<div class="row">
+			<div class="form-group col-sm-10">
+			    <label class="col-sm-10 control-label label-border">
+			    	<p>Nome da tarefa:</p>
+			    	<strong><label class="label-info-tarefa" th:text="${tarefa.nomeTarefa}"></label></strong>
+			    </label>
+			  </div>
+			  
+			  <div class="form-group col-sm-10">
+			    <label for="descricao" class="col-sm-10 control-label label-border"><p>Descri&ccedil;&atilde;o da tarefa:</p>
+			    	<strong><label class="label-info-tarefa" th:text="${tarefa.descricaoTarefa}"></label></strong>
+			    </label>
+			  </div>
+			  
+			  <div class="form-group col-sm-10">
+			    <label class="col-sm-10 control-label label-border"><p>Prioridade da tarefa:</p> 
+			    	<strong><label class="label-info-tarefa" th:text="${tarefa.prioridadeTarefa}"></label></strong>
+			    </label>
+			  </div>
+			  
+			  
+			  <div class="form-group col-sm-10">
+			    <label class="col-sm-12 control-label label-border"><p>Categoria da tarefa:</p> 
+			    	<strong><label class="label-info-tarefa" th:text="${tarefa.categoriaTarefa}"></label></strong>
+			    </label>
+			  </div>
+			  
+			  
+			  <div class="form-group col-sm-10">
+			    <label class="col-sm-12 control-label label-border"><p>Status  da tarefa:</p> 
+			    	<strong><label class="label-info-tarefa" th:text="${(tarefa.statusTarefa == false) ? 'Aberta' : 'Concluida'}"></label></strong>
+			    </label>
+			  </div>
+			  
+			  <div class="form-group col-sm-10">
+			    <label for="nome" class="col-sm-3 control-label">
+				    <p>Lista de sub tarefas:</p>
+				     <label class="label-info-tarefa" th:each="subtarefa : ${tarefa.listaSubTarefas}"  th:text="${subtarefa.nomeSubTarefa}"></label>
+			    </label>
+			  </div>
+		</div>
+	
+	<footer class="footer">
+		<th:block th:include="geral/footer :: footer"></th:block>
+	</footer>
+	
+</div><!-- /container -->	
+</body>
+</html>
