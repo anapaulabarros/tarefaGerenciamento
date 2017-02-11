@@ -71,3 +71,19 @@ function orderingDataTable(){
             
     });
 }
+
+function exportPDF(){
+	
+	var doc = new jsPDF('landscape', 'pt', 'a4');
+	var specialElementHandlers = {
+	    '#editor': function (element, renderer) {
+	        return true;
+	    }
+	};
+	doc.fromHTML($('#container-pdf').html(), 40, 80, {
+        'width': 800,
+        'elementHandlers': specialElementHandlers
+    });
+    doc.save('lista-tarefas.pdf');
+	
+}
