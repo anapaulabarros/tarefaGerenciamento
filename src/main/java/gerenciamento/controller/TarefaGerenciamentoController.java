@@ -23,7 +23,7 @@ public class TarefaGerenciamentoController extends BaseController{
 	@Autowired
 	UsuarioService usuarioService;
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET) //pagina index - carrega a lista de tarefas em aberto
+	@RequestMapping(value = "/index", method = RequestMethod.GET) //pagina index - carrega a lista de tarefas em aberto
 	public String indexApp(Model model){
 		model.addAttribute("tarefalista", tarefaService.getByStatusTarefa(false));
 		model.addAttribute("totalTarefasAbertas", tarefaService.getTotalTarefasAbertas());
