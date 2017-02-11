@@ -44,7 +44,7 @@ public class TarefaGerenciamentoController extends BaseController{
 		return "tarefalista";
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.POST) //pagina index - Filtro de tarefas
+	@RequestMapping(value = "/index", method = RequestMethod.POST) //pagina index - Filtro de tarefas
 	public String filtraTarefaPorCategoria(@RequestParam int opcaoFiltro, @RequestParam String filtroTarefa,Model model){
 		model.addAttribute("tarefalista",  tarefaService.getByStatusTarefa(false));
 		model.addAttribute("totalTarefasAbertas", tarefaService.getTotalTarefasAbertas());
