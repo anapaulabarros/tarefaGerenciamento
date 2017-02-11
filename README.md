@@ -1,2 +1,2 @@
 # tarefaGerenciamento
-Respositório referente ao lab. 03 de SI 1 - ToDo List usando Java + SpringBoot + MySQL + JPA
+Respositório referente ao lab. 03 de SI 1 - ToDo List usando Java + SpringBoot + Postgresql + JPA
