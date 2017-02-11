@@ -7,47 +7,49 @@
 <body>
 <div class="container">
 	<div th:replace="geral/header :: header">&nbsp;</div>
-	
-	<div class="row">
-		<center>
-			<h3><strong>Lista de tarefas a fazer</strong></h3>
-			<p>Total de tarefas: <strong><span th:text="${totalTarefasAbertas}" /></strong></p>
-		</center>
+	<div id="container-pdf">
+		<div class="row">
+			<center>
+				<h3><strong>Lista de tarefas a fazer</strong></h3>
+				<p>Total de tarefas: <strong><span th:text="${totalTarefasAbertas}" /></strong></p>
+			</center>
+		</div>
+		<table class="table table-hover table-list-task" id="tabela-tarefas-abertas">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th id="nome">Nome <i class="fa fa fa-sort"></i></th>
+					<th>Descri&ccedil;&atilde;o</th>
+					<th>Categoria</th>
+					<th id="prioridade">Prioridade <i class="fa fa fa-sort"></i></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>	
+			<tbody>
+				<tr th:each="tarefa : ${tarefalista}">
+					<td th:text="${tarefa.tarefaId}"></td>
+					<td th:text="${tarefa.nomeTarefa}"></td>
+					<td th:text="${tarefa.descricaoTarefa}"></td>
+					<td th:text="${tarefa.categoriaTarefa}"></td>
+					<td th:text="${tarefa.prioridadeTarefa}"></td>
+					<td><a th:href="@{'/finalizatarefa/' + ${tarefa.tarefaId}}"><i class="fa fa-check-square-o"></i></a></td>
+					<td><a th:href="@{'/editatarefa/' + ${tarefa.tarefaId}}"><i class="fa fa-pencil"></i></a></td>
+					<td><a th:href="@{'/detalhestarefa/' + ${tarefa.tarefaId}}"><i class="fa fa-info"></i></a></td>
+					<td><a th:href="@{'/deletatarefa/' + ${tarefa.tarefaId}}"><i class="fa fa-trash"></i></a></td>
+				</tr>
+			</tbody>
+		</table>
+		<div id="editor" class="row"></div>
 	</div>
-	<table class="table table-hover table-list-task" id="tabela-tarefas-abertas">
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th id="nome">Nome <i class="fa fa fa-sort"></i></th>
-				<th>Descri&ccedil;&atilde;o</th>
-				<th>Categoria</th>
-				<th id="prioridade">Prioridade <i class="fa fa fa-sort"></i></th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-			</tr>
-		</thead>	
-		<tbody>
-			<tr th:each="tarefa : ${tarefalista}">
-				<td th:text="${tarefa.tarefaId}"></td>
-				<td th:text="${tarefa.nomeTarefa}"></td>
-				<td th:text="${tarefa.descricaoTarefa}"></td>
-				<td th:text="${tarefa.categoriaTarefa}"></td>
-				<td th:text="${tarefa.prioridadeTarefa}"></td>
-				<td><a th:href="@{'/finalizatarefa/' + ${tarefa.tarefaId}}"><i class="fa fa-check-square-o"></i></a></td>
-				<td><a th:href="@{'/editatarefa/' + ${tarefa.tarefaId}}"><i class="fa fa-pencil"></i></a></td>
-				<td><a th:href="@{'/detalhestarefa/' + ${tarefa.tarefaId}}"><i class="fa fa-info"></i></a></td>
-				<td><a th:href="@{'/deletatarefa/' + ${tarefa.tarefaId}}"><i class="fa fa-trash"></i></a></td>
-			</tr>
-		</tbody>
-	</table>
-	
 	<div class="row">
 		<p class="btn btn-default btn-add-new-task">
 			<a href="/carregatarefa"><strong>Adicionar nova tarefa</strong></a>
 		</p>
+		<p><a href="javascript:exportPDF();" class="btn btn-default btn-add-new-task btn-pdf">Gerar PDF</a></p>
 	</div>
 	
 		
