@@ -30,10 +30,6 @@ public class TarefaGerenciamentoController extends BaseController{
 		return "tarefalista";
 	}
 	
-	@RequestMapping(value = "/contato", method = RequestMethod.GET) //prepara pagina de visualização de contato
-	public String editaContato(Model model){
-		return "editacontato";
-	}
 	
 	@RequestMapping(value = "/index", method = RequestMethod.POST) //pagina index - Filtro de tarefas
 	public String filtraTarefaPorCategoria(@RequestParam int opcaoFiltro, @RequestParam String filtroTarefa,Model model){
