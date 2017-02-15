@@ -51,7 +51,7 @@ public class TarefaGerenciamentoController extends BaseController{
 	@RequestMapping(value = "/contato", method = RequestMethod.GET) //prepara pagina de edicao de contato
 	public String editaContato(Model model){
 		return "editacontato";
-	}s
+	}
 	
 	@RequestMapping(value = "/carregatarefa", method = RequestMethod.GET) //carrega pagina de add tarefa - formulario
 	public String preparaAddTareda(Model model){
