@@ -12,15 +12,14 @@
 	<div class="row">
 		<center><h2>Configura&ccedil;&atilde;o de contato</h2></center>
 		<div class="col-lg-12">
-		 	<form class="form-horizontal" action="/updatecontato" th:object="${usuario}" method="post" id="contact_form" enctype="multipart/form-data">
+		 	<form class="form-horizontal" action=""  method="" id="contact_form" enctype="multipart/form-data">
              <fieldset>
                  <div class="form-group">
 
                      <div class="col-md-12">
                          <div class="input-group">
                              <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                             <input th:value="${infocontato.nomeUsuario}" name="nomeUsuario" class="form-control" type="text" />
-                             <input type="hidden" name="usuarioId" th:value="${infocontato.usuarioId}" />
+                             <input value="Ana Paula Barros" name="nomeUsuario" class="form-control" type="text" readonly/>
                          </div>
                      </div>
                  </div>
@@ -29,7 +28,7 @@
                      <div class="col-md-12">
                          <div class="input-group">
                              <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                             <input th:value="${infocontato.emailUsuario}" name="emailUsuario" class="form-control" type="text" />
+                             <input value="barros.anapaulas@gmail.com" name="emailUsuario" class="form-control" type="text" readonly/>
                          </div>
                      </div>
                  </div>
@@ -38,16 +37,11 @@
                      <div class="col-md-12">
                          <div class="input-group">
                              <span class="input-group-addon"><i class="fa fa-link" aria-hidden="true"></i></span>
-                             <input th:value="${infocontato.linkGitHubUsuario}" name="linkGitHubUsuario" class="form-control" type="text" />
+                             <input value="http://github.com/anapaulabarros" name="linkGitHubUsuario" class="form-control" type="text" readonly/>
                          </div>
                      </div>
                  </div>
-
-                 <div class="form-group">
-				    <div class="col-sm-12">
-				      <input type="submit" class="btn btn-default btn-add-new-task" value="Editar" />
-				    </div>
-				  </div>
+		     
              </fieldset>
          </form>
 		</div>
