@@ -30,18 +30,9 @@ public class TarefaGerenciamentoController extends BaseController{
 		return "tarefalista";
 	}
 	
-	@RequestMapping(value = "/editacontato/{id}", method = RequestMethod.GET) //prepara pagina de edicao de contato
-	public String editaContato(@PathVariable Long id, Model model){
-		model.addAttribute("infocontato", usuarioService.getUsuario(id));
+	@RequestMapping(value = "/contato", method = RequestMethod.GET) //prepara pagina de visualização de contato
+	public String editaContato(Model model){
 		return "editacontato";
-	}
-	
-	@RequestMapping(value = "/updatecontato", method = RequestMethod.POST)//Atualiza as informacoes do contato e retorna para a pagina index
-	public String atualizaContato(@ModelAttribute Usuario usuario, Model model){
-		usuarioService.updateUsuario(usuario);
-		model.addAttribute("tarefalista", tarefaService.getByStatusTarefa(false));
-		model.addAttribute("totalTarefasAbertas", tarefaService.getTotalTarefasAbertas());
-		return "tarefalista";
 	}
 	
 	@RequestMapping(value = "/index", method = RequestMethod.POST) //pagina index - Filtro de tarefas
