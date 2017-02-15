@@ -1,5 +1,5 @@
 CREATE DATABASE  IF NOT EXISTS `db_gerenciamento_tarefa` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
-USE `db_gerenciamento_tarefa`;
+ USE `db_gerenciamento_tarefa`;
 -- MySQL dump 10.13  Distrib 5.7.12, for osx10.9 (x86_64)
 --
 -- Host: 127.0.0.1    Database: springbootdb
